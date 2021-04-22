@@ -1,0 +1,22 @@
+.pet-group-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.pet-group {
+	border-left: 1px solid rgb(191, 191, 191);
+	margin: 1rem 0 1rem 0.5rem;
+	padding: 0 3rem;
+	box-shadow: -0.5rem -0.5rem 0.5rem rgb(248, 249, 250);
+}
+
+@media screen and (min-width: 1024px) {
+	.pet-group {
+		margin-left: 8rem;
+	}
+}
+
+.pet-name {
+	padding: 0.5rem;
+	list-style-type: "\1F408";
+}

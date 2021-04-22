@@ -1,6 +1,7 @@
 import React from 'react';
 import { GenderGroups, Pet } from '../models/petModels';
 import PetList from './PetList';
+import './PetGroups.css';
 
 type PetGroupsProps = {
 	groups: GenderGroups<Pet>
@@ -16,7 +17,7 @@ const PetGroups: React.FunctionComponent<PetGroupsProps> = ({ groups }) => {
 	}
 
 	return (
-		<div>
+		<div className="pet-group-list">
 			{genders.map(gender => (
 				<div className="pet-group" key={gender}>
 					<h2>{gender}</h2>
