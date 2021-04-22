@@ -1,14 +1,44 @@
-import { render } from '@testing-library/react';
+import { act, render, waitFor } from '@testing-library/react';
 import App from './App';
+import { PetOwner } from './models/petModels';
+
+const TEST_PET_OWNERS: PetOwner[] = [
+	{
+		name: 'Alice',
+		age: 20,
+		gender: 'Female',
+		pets: [
+			{ name: 'Fluffy', type: 'Cat' }
+		]
+	}
+];
 
 describe('App', () => {
-	it('renders a container for the app', () => {
-		const { container } = render(<App />);
-		expect(container.firstChild).toHaveClass('agl-app');
+	beforeEach(() => {
+		jest.spyOn(global, 'fetch').mockResolvedValue({
+			json: () => Promise.resolve(TEST_PET_OWNERS)
+		} as any);
 	});
 
-	it('initially shows a loading indicator', () => {
+	it('renders a container for the app', async () => {
 		const { container } = render(<App />);
-		expect(container).toHaveTextContent('Loading…');
+		await waitFor(() => {
+			expect(container.firstChild).toHaveClass('agl-app');
+		});
+	});
+
+	it('shows cat names', async () => {
+		const { container } = render(<App />);
+		await waitFor(() => {
+			expect(container).toHaveTextContent('Loading…');
+		});
+	});
+
+	it('shows cat names', async () => {
+		const { container } = render(<App />);
+		await waitFor(() => {
+			expect(container).toHaveTextContent('Fluffy');
+			expect(container).not.toHaveTextContent('Loading…');
+		});
 	});
 });
