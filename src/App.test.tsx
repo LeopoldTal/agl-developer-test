@@ -1,4 +1,4 @@
-import { act, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import App from './App';
 import { PetOwner } from './models/petModels';
 
@@ -27,7 +27,7 @@ describe('App', () => {
 		});
 	});
 
-	it('shows cat names', async () => {
+	it('initially shows a loading indicator', async () => {
 		const { container } = render(<App />);
 		await waitFor(() => {
 			expect(container).toHaveTextContent('Loading…');
