@@ -2,6 +2,8 @@
 
 This repo contains my solution to the [AGL Developer Test](http://agl-developer-test.azurewebsites.net/) programming challenge.
 
+![Screenshot of the result, with two lists of cats](docs/screenshot.png)
+
 ## Goal
 
 Read a remote [JSON list of pet owners](http://agl-developer-test.azurewebsites.net/people.json) and output all the cats, by the gender of their owner, sorted alphabetically within each list.
