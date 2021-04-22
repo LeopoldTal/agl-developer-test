@@ -26,8 +26,14 @@ and view the results at [http://localhost:3000](http://localhost:3000).
 
 ## Tests
 
+Run tests interactively:
+
 ```
 yarn test
 ```
 
-TODO: I'm planning to add test coverage soon.
+Run batched tests and generate coverage report:
+
+```
+yarn test:coverage
+```
