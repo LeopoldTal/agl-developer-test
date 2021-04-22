@@ -3,11 +3,16 @@ import { fetchPets } from '../apiClient/petOwnersClient';
 import { rawToSortedCats } from '../services/rawToSortedCats';
 
 export const useSortedCats = () => {
+	const [isLoading, setIsLoading] = useState(true);
 	const [sortedCats, setSortedCats] = useState({});
 
 	useEffect(() => {
-		fetchPets().then(rawToSortedCats).then(setSortedCats);
+		setIsLoading(true);
+		fetchPets()
+			.then(rawToSortedCats)
+			.then(setSortedCats)
+			.finally(() => setIsLoading(false));
 	}, [setSortedCats]);
 
-	return sortedCats;
+	return { isLoading, sortedCats };
 };
