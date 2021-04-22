@@ -37,3 +37,9 @@ Run batched tests and generate coverage report:
 ```
 yarn test:coverage
 ```
+
+Run end-to-end tests:
+
+```
+yarn test:e2e
+```
